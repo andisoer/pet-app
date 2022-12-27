@@ -1,10 +1,135 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:pet_app/configs/theme/app_text_styles.dart';
+import 'package:pet_app/constants/asset_constants.dart';
 
-class OnBoardingView extends StatelessWidget {
+class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key}) : super(key: key);
 
   @override
+  State<OnBoardingView> createState() => _OnBoardingViewState();
+}
+
+class _OnBoardingViewState extends State<OnBoardingView> {
+  final List<Widget> onBoardingView = [
+    const OnBoardingWidget(
+      assetPath: AssetConstants.onboardingIllustration,
+      label: 'Meet your animal needs here',
+      description:
+          'Whether you have a furry friend at home or you\'re looking to adopt a companion, we have something for everyone.',
+    ),
+    const OnBoardingWidget(
+      assetPath: AssetConstants.onboardingIllustration2,
+      label: 'Revolutionize Your Pet Care with This App',
+      description:
+          'Our app offers tips and resources for training, nutrition, and overall pet care, making it the ultimate tool for any pet owner.',
+    ),
+    const OnBoardingWidget(
+      assetPath: AssetConstants.onboardingIllustration3,
+      label: 'Your Ultimate Pet Care Companion',
+      description:
+          'Whether you have a new puppy or an aging senior dog, this app has you covered',
+    )
+  ];
+
+  final PageController _pageController = PageController(initialPage: 0);
+  var currentIndex = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController.addListener(() {
+      setState(() {
+        currentIndex = _pageController.page!;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 24.h),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 4 / 5,
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: onBoardingView.length,
+                  itemBuilder: (context, position) {
+                    return onBoardingView[position];
+                  },
+                ),
+              ),
+              DotsIndicator(
+                dotsCount: onBoardingView.length,
+                position: currentIndex,
+                decorator: const DotsDecorator(
+                  size: Size.square(6),
+                  activeSize: Size.square(6),
+                ),
+              ),
+              SizedBox(height: 24.h),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 24.w),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Get Started',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class OnBoardingWidget extends StatelessWidget {
+  final String assetPath;
+  final String label;
+  final String description;
+
+  const OnBoardingWidget({
+    Key? key,
+    required this.assetPath,
+    required this.label,
+    required this.description,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(
+        horizontal: 24.w,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SizedBox(height: 12.h),
+          Text(
+            label + '\n\n\n',
+            style: AppTextStyles.f40w600Black,
+            textAlign: TextAlign.start,
+            maxLines: 3,
+          ),
+          SizedBox(height: 4.h),
+          SvgPicture.asset(assetPath),
+          SizedBox(height: 16.h),
+          Text(
+            description,
+            style: AppTextStyles.f14w600Grey,
+            textAlign: TextAlign.justify,
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -6,4 +6,7 @@ class AssetConstants {
       'assets/svgs/illustration-1.svg';
   static const String onboardingIllustration3 =
       'assets/svgs/illustration-2.svg';
+
+  static const String logoGoogle = 'assets/images/google_logo.png';
+  static const String logoFacebook = 'assets/images/facebook_logo.png';
 }

@@ -41,5 +41,33 @@ class AppTheme {
         ),
       ),
     ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.primary,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: AppTextStyles.f14w500Grey,
+      contentPadding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 24.w),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(
+          width: 1,
+          color: AppColors.grey,
+        ),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(
+          width: 1,
+          color: AppColors.primary,
+        ),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(
+          width: 1,
+          color: AppColors.red,
+        ),
+      ),
+    ),
   );
 }

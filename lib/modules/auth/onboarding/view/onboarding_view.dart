@@ -2,6 +2,8 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/configs/route/app_routes.dart';
 import 'package:pet_app/configs/theme/app_text_styles.dart';
 import 'package:pet_app/constants/asset_constants.dart';
 
@@ -78,7 +80,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 24.w),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(AppRoutes.login),
                   child: const Text(
                     'Get Started',
                   ),
@@ -125,7 +127,7 @@ class OnBoardingWidget extends StatelessWidget {
           SizedBox(height: 16.h),
           Text(
             description,
-            style: AppTextStyles.f14w600Grey,
+            style: AppTextStyles.f14w400Grey,
             textAlign: TextAlign.justify,
           ),
         ],

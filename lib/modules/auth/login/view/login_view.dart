@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:pet_app/configs/color/app_colors.dart';
 import 'package:pet_app/configs/theme/app_text_styles.dart';
 import 'package:pet_app/constants/asset_constants.dart';
+import 'package:pet_app/modules/auth/login/controller/login_controller.dart';
 import 'package:pet_app/modules/auth/login/view/components/login_social_button_widget.dart';
 
 class LoginView extends StatelessWidget {
@@ -30,6 +32,8 @@ class LoginView extends StatelessWidget {
               ),
               SizedBox(height: 32.h),
               TextField(
+                controller: LoginController.to.emailController,
+                keyboardType: TextInputType.emailAddress,
                 style: AppTextStyles.f14w500Primary,
                 decoration: const InputDecoration(
                   hintText: 'Email',
@@ -37,6 +41,7 @@ class LoginView extends StatelessWidget {
               ),
               SizedBox(height: 16.h),
               TextField(
+                controller: LoginController.to.passwordController,
                 style: AppTextStyles.f14w500Primary,
                 obscureText: true,
                 decoration: const InputDecoration(
@@ -95,11 +100,15 @@ class LoginView extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 32.h),
-              const SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: null,
-                  child: Text('Login'),
+              Obx(
+                () => SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: LoginController.to.isLoginButtonEnabled.value
+                        ? () {}
+                        : null,
+                    child: const Text('Login'),
+                  ),
                 ),
               ),
             ],

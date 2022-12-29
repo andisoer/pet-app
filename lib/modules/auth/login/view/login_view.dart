@@ -109,7 +109,7 @@ class LoginView extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: LoginController.to.isLoginButtonEnabled.value
-                        ? () {}
+                        ? () => Get.toNamed(AppRoutes.navigator)
                         : null,
                     child: const Text('Login'),
                   ),

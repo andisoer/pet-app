@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/configs/color/app_colors.dart';
+import 'package:pet_app/configs/route/app_routes.dart';
 import 'package:pet_app/configs/theme/app_text_styles.dart';
 import 'package:pet_app/constants/asset_constants.dart';
 import 'package:pet_app/modules/auth/login/controller/login_controller.dart';
@@ -95,6 +97,8 @@ class LoginView extends StatelessWidget {
                     TextSpan(
                       text: 'Create Account',
                       style: AppTextStyles.f12w700Primary,
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => Get.toNamed(AppRoutes.register),
                     ),
                   ],
                 ),

@@ -3,6 +3,8 @@ import 'package:pet_app/configs/route/app_routes.dart';
 import 'package:pet_app/modules/auth/login/controller/login_controller.dart';
 import 'package:pet_app/modules/auth/login/view/login_view.dart';
 import 'package:pet_app/modules/auth/onboarding/view/onboarding_view.dart';
+import 'package:pet_app/modules/auth/register/controller/register_controller.dart';
+import 'package:pet_app/modules/auth/register/view/register_view.dart';
 
 class AppPages {
   AppPages._();
@@ -18,6 +20,13 @@ class AppPages {
         page: () => const LoginView(),
         binding: BindingsBuilder(
           () => Get.lazyPut<LoginController>(() => LoginController()),
+        ),
+      ),
+      GetPage(
+        name: AppRoutes.register,
+        page: () => const RegisterView(),
+        binding: BindingsBuilder(
+          () => Get.lazyPut<RegisterController>(() => RegisterController()),
         ),
       ),
     ];

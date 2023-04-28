@@ -70,4 +70,64 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     fontSize: 14.sp,
   );
+
+  static final TextStyle f12w600Black30 = TextStyle(
+    color: AppColors.black30,
+    fontWeight: FontWeight.w600,
+    fontSize: 12.sp,
+  );
+
+  static final TextStyle f16w400Black = TextStyle(
+    color: AppColors.black,
+    fontWeight: FontWeight.w400,
+    fontSize: 16.sp,
+  );
+
+  static final TextStyle f14w700White = TextStyle(
+    color: AppColors.white,
+    fontWeight: FontWeight.w700,
+    fontSize: 14.sp,
+  );
+
+  static final TextStyle f12w400White = TextStyle(
+    color: AppColors.white,
+    fontWeight: FontWeight.w400,
+    fontSize: 12.sp,
+  );
+
+  static final TextStyle f14w400White = TextStyle(
+    color: AppColors.white,
+    fontWeight: FontWeight.w400,
+    fontSize: 14.sp,
+  );
+
+  static final TextStyle f16w700Black = TextStyle(
+    color: AppColors.black,
+    fontWeight: FontWeight.w700,
+    fontSize: 16.sp,
+  );
+
+  static final TextStyle f12w500Primary = TextStyle(
+    color: AppColors.primary,
+    fontWeight: FontWeight.w500,
+    fontSize: 12.sp,
+  );
+
+  static final TextStyle f12w500White = TextStyle(
+    color: AppColors.white,
+    fontWeight: FontWeight.w500,
+    fontSize: 12.sp,
+  );
+
+  static final TextStyle f12w500Grey = TextStyle(
+    color: AppColors.grey,
+    fontWeight: FontWeight.w500,
+    fontSize: 12.sp,
+  );
+
+  static final TextStyle f12w500Black30 = TextStyle(
+    color: AppColors.black30,
+    fontWeight: FontWeight.w500,
+    fontSize: 12.sp,
+  );
 }

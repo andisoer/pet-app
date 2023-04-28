@@ -22,12 +22,17 @@ class AppTheme {
           borderRadius: BorderRadius.circular(30.r),
         ),
       ).merge(
-          ButtonStyle(elevation: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.pressed)) {
-          return 0;
-        }
-        return 0;
-      }))),
+        ButtonStyle(
+          elevation: MaterialStateProperty.resolveWith(
+            (states) {
+              if (states.contains(MaterialState.pressed)) {
+                return 0;
+              }
+              return 0;
+            },
+          ),
+        ),
+      ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
